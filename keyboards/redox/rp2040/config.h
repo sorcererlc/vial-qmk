@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include "config_common.h"
-
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
 
@@ -18,7 +16,7 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
 
 // I2C
-#define I2C_DRIVER I2CD2
+#define I2C_DRIVER I2CD1
 #define I2C1_SDA_PIN GP14
 #define I2C1_SCL_PIN GP15
 
@@ -49,54 +47,48 @@
 #define DIODE_DIRECTION COL2ROW
 
 /* Select hand configuration */
-#define SPLIT_USB_DETECT
-#define SPLIT_USB_TIMEOUT 2000
-#define SPLIT_USB_TIMEOUT_POLL 10
-#define SPLIT_HAND_PIN GP2 // high = left hand, low = right hand
+// #define SPLIT_USB_DETECT
+// #define SPLIT_USB_TIMEOUT 2000
+// #define SPLIT_USB_TIMEOUT_POLL 10
+// #define SPLIT_HAND_PIN GP2 // high = left hand, low = right hand
 
 
 // Encoder
-#ifdef ENCODER_ENABLE
-#define ENCODERS_PAD_A { GP5 }
-#define ENCODERS_PAD_B { GP6 }
-#define ENCODER_RESOLUTIONS { 2 }
+// #ifdef ENCODER_ENABLE
+// #define ENCODERS_PAD_A { GP5 }
+// #define ENCODERS_PAD_B { GP6 }
+// #define ENCODER_RESOLUTIONS { 2 }
 
-#define DIP_SWITCH_PINS { GP7 }
-#endif
+// #define DIP_SWITCH_PINS { GP7 }
+// #endif
 
 /* Split keyboard features */
-#define SPLIT_TRANSPORT_MIRROR
-#define SPLIT_LAYER_STATE_ENABLE
-#define SPLIT_LED_STATE_ENABLE
-#define SPLIT_MODS_ENABLE
-#define SPLIT_OLED_ENABLE
-
-// VIAL options
-#define VIAL_COMBO_ENTRIES 4
-#define VIAL_KEY_OVERRIDE_ENTRIES 4
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#define VIAL_UNLOCK_COMBO_ROWS { 3, 8 }
-#define VIAL_UNLOCK_COMBO_COLS { 0, 0 }
+// #define SPLIT_TRANSPORT_MIRROR
+// #define SPLIT_LAYER_STATE_ENABLE
+// #define SPLIT_LED_STATE_ENABLE
+// #define SPLIT_MODS_ENABLE
+// #define SPLIT_OLED_ENABLE
+// #define SPLIT_WPM_ENABLE
 
 // RGB Matrix
 #ifdef RGB_MATRIX_ENABLE
 
 #define NOP_FUDGE 0.4
 #define WS2812_PIO_USE_PIO1
-#undef RGB_DI_PIN
-#define RGB_DI_PIN GP3
-#define RGBLED_NUM 120
-#define DRIVER_LED_TOTAL 120
-#define RGB_MATRIX_SPLIT { 60, 60 }
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 80
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
-#define RGB_MATRIX_LED_PROCESS_LIMIT (DRIVER_LED_TOTAL + 4) / 5 // limits the number of LEDs to process in an animation per task run (increases keyboard responsiveness)
-#define RGB_MATRIX_LED_FLUSH_LIMIT 16 // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
-#define RGB_MATRIX_HUE_STEP 8
-#define RGB_MATRIX_SAT_STEP 8
-#define RGB_MATRIX_VAL_STEP 8
-#define RGB_MATRIX_SPD_STEP 10
-#define RGB_MATRIX_STARTUP_SPD 127
+// #undef WS2812_DI_PIN
+// #define WS2812_DI_PIN GP3
+// #define RGBLED_NUM 120
+// #define DRIVER_LED_TOTAL 120
+// #define RGB_MATRIX_SPLIT { 60, 60 }
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 80
+// #define RGB_MATRIX_SLEEP
+// #define RGB_MATRIX_LED_PROCESS_LIMIT (DRIVER_LED_TOTAL + 4) / 5 // limits the number of LEDs to process in an animation per task run (increases keyboard responsiveness)
+// #define RGB_MATRIX_LED_FLUSH_LIMIT 16 // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
+// #define RGB_MATRIX_HUE_STEP 8
+// #define RGB_MATRIX_SAT_STEP 8
+// #define RGB_MATRIX_VAL_STEP 8
+// #define RGB_MATRIX_SPD_STEP 10
+// #define RGB_MATRIX_STARTUP_SPD 127
 
 // Include available RGB matrix effects
 #include "rgbeffects.h"
