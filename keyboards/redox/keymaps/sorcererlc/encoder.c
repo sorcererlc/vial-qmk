@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include <layers.h>
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -24,9 +23,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         break;
     case 1: /* Second encoder */
         if (clockwise) {
-            tap_code(KC_VOLU);
+            tap_code(KC_RIGHT);
         } else {
-            tap_code(KC_VOLD);
+            tap_code(KC_LEFT);
         }
         break;
     }
@@ -44,7 +43,7 @@ bool dip_switch_update_user(uint8_t index, bool active) {
         break;
     case 1: /* Second encoder */
         if(active) {
-            tap_code(KC_MUTE);
+            tap_code(KC_SPC);
         } else {}
         break;
     }
