@@ -60,7 +60,6 @@
         ]
     },
     "dip_switch": {
-        "enabled": true,
         "pins": ["GP7"]
     },
     "ws2812": {

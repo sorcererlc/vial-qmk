@@ -11,6 +11,7 @@ SERIAL_DRIVER = vendor
 
 # Encoder
 ENCODER_MAP_ENABLE = yes
+DIP_SWITCH_MAP_ENABLE = yes
 
 # OLED
 OLED_ENABLE = yes

@@ -46,20 +46,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif
 
-#ifdef DIP_SWITCH_ENABLE
-bool dip_switch_update_user(uint8_t index, bool active) {
-    switch (index) {
-    case 0: /* First encoder */
-        if(active) {
-            tap_code(KC_MUTE);
-        } else {}
-        break;
-    case 1: /* Second encoder */
-        if(active) {
-            tap_code(KC_SPC);
-        } else {}
-        break;
-    }
-    return false;
-}
+#ifdef DIP_SWITCH_MAP_ENABLE
+const uint16_t PROGMEM dip_switch_map[NUM_DIP_SWITCHES][NUM_DIP_STATES] = {
+    DIP_SWITCH_OFF_ON(KC_NO, KC_MUTE)
+};
 #endif
