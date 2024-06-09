@@ -6,7 +6,7 @@
 // entirely and just use numbers.
 
 // Shortcut to make keymap more readable
-#define L_FUNC  MO(1)
+#define L_FUNC MO(1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -38,3 +38,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   )
 };
+
+#ifdef ENCODER_MAP_ENABLE
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) },
+    [1] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) },
+};
+#endif
+
+#ifdef DIP_SWITCH_ENABLE
+bool dip_switch_update_user(uint8_t index, bool active) {
+    switch (index) {
+    case 0: /* First encoder */
+        if(active) {
+            tap_code(KC_MUTE);
+        } else {}
+        break;
+    case 1: /* Second encoder */
+        if(active) {
+            tap_code(KC_SPC);
+        } else {}
+        break;
+    }
+    return false;
+}
+#endif

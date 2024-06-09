@@ -27,7 +27,9 @@
         "extrakey": true,
         "command": true,
         "raw": true,
-        "wpm": true
+        "wpm": true,
+        "audio": false,
+        "backlight": false
     },
     "split": {
         "handedness": {
